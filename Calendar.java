@@ -1,5 +1,10 @@
 import java.time.LocalDate;
 
 public class Calendar {
-    LocalDate calendar;
+    private int limitDates;
+
+    public int limitDates(){
+        int toTheEndOfYear = 365 - LocalDate.now().getDayOfYear();
+        return toTheEndOfYear;
+    }
 }
