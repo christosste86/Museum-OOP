@@ -10,6 +10,7 @@ public class Customers {
             {"Novák", "Svoboda", "Novotný", "Dvořák", "Černý"}
     };
 
+
     public Customers() {
     }
 

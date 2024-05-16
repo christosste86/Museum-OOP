@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Main {
 
 
@@ -5,6 +7,13 @@ public class Main {
         Tickets tickets = new Tickets();
         Customers customers = new Customers();
         Calendar limitDates = new Calendar();
+        Statistics statistics = new Statistics();
+
+        statistics.setDatesToTable();
+
+        for(int i =0; i<statistics.getTable()[0].length;i++){
+            System.out.println(statistics.getTable()[0][i]);
+        }
 
         System.out.println(customers.randomFirstname());
         System.out.println(customers.randomLastname(customers.randomFirstname()));
@@ -20,4 +29,10 @@ public class Main {
 
         Introductions.welcome();
     }
+    static void setData(Object [][] table, int limitDates){
+        for (int i = 0; i<limitDates;i++){
+            table[0][i] = LocalDate.now().plusDays(i).toString();
+        }
+    }
+
 }
