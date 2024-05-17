@@ -69,7 +69,7 @@ public class Statistics {
                 System.out.println();
                 sum += (double) statistics.getTable()[12][i];
             }
-            System.out.println((double) sum);
+            System.out.println(sum + " €");
             validDate = true; // Date is valid
 
         }
