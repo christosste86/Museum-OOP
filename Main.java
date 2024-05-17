@@ -76,7 +76,8 @@ public class Main {
                         System.out.println("1. Ticket Statistics");
                         System.out.println("2. Customers Statistics");
                         System.out.println("3. Payment Statistics");
-                        System.out.println("4. Back to Main Menu");
+                        System.out.println("4. Full Statistics");
+                        System.out.println("5. Back to Main Menu");
                         System.out.print("Choose an option: ");
 
                         int administratorChois = scanner.nextInt();
@@ -97,6 +98,11 @@ public class Main {
                                 promptEnterKey(scanner);
                                 break;
                             case 4:
+                                backToMain = true;
+                                statistics.fullStatistics(calendar, scanner, statistics, tickets);
+                                promptEnterKey(scanner);
+                                break;
+                            case 5:
                                 backToMain = true;
                                 break;
                             default:
