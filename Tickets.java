@@ -1,19 +1,14 @@
 public class Tickets {
     private Double ticketPrice;
-    private int maxTicketsPerDay;
-    private String status;
+    private Integer maxTicketsPerDay;
 
     public Tickets() {
         this.ticketPrice = 10.0;
-        this.status = status == null? status = "Normal": status;
+        this.maxTicketsPerDay = maxTicketsPerDay == null? maxTicketsPerDay = 10:maxTicketsPerDay;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public Integer getMaxTicketsPerDay() {
+        return maxTicketsPerDay;
     }
 
     public double getTicketPrice() {
@@ -24,13 +19,13 @@ public class Tickets {
             {"Invalid", "Student", "Child", "Pensioner", "Normal"},
             { 70,         30,         80,       60,       0}};
 
-    public double offerPrice(){
+    public double offerPrice(Customers customers){
         for(int i = 0; 0<offers.length;i++) {
-            if (status.equalsIgnoreCase(offers[0][i].toString())){
+            if (customers.getStatus().equalsIgnoreCase(offers[0][i].toString())){
                 return ticketPrice - (ticketPrice * (int) offers[1][i] / 100);
             }
         }
-        return ticketPrice;
+        return 0.0;
     }
 
     public Object[][] getOffers() {

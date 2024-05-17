@@ -1,10 +1,13 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Calendar {
-    private int limitDates;
+    private DateTimeFormatter czDateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
-    public int limitDates(){
-        int toTheEndOfYear = 365 - LocalDate.now().getDayOfYear();
-        return toTheEndOfYear;
+    public Calendar() {
+    }
+
+    public DateTimeFormatter getCzDateFormat() {
+        return czDateFormat;
     }
 }
