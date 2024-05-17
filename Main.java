@@ -87,12 +87,12 @@ public class Main {
                                 break;
                             case 2:
                                 System.out.println("Customers Statistics");
-                                statistics.customerStatistics(calendar, customers, scanner, statistics, tickets);
+                                statistics.customerStatistics(calendar, scanner, statistics, tickets);
                                 promptEnterKey(scanner);
                                 break;
                             case 3:
                                 System.out.println("Payment Statistics");
-                                statistics.paymentStatistics(calendar,customers,scanner,statistics);
+                                statistics.paymentStatistics(calendar,scanner,statistics);
                                 promptEnterKey(scanner);
                                 break;
                             case 4:

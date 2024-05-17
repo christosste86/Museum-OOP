@@ -47,9 +47,9 @@ public class Customers {
 
     public void setRandomTableData(Statistics statistics, Tickets tickets,Customers customers, Calendar calendar){
         double dailyPrice = 0;
-        int randomTicketsPerDay =(int) (Math.random()* tickets.getMaxTicketsPerDay() + 1);
-        for (int x = 0; x < statistics.getTable().length; x ++){
 
+        for (int x = 0; x < statistics.getTable().length; x ++){
+            int randomTicketsPerDay =(int) (Math.random()* tickets.getMaxTicketsPerDay() + 1);
             statistics.getTable()[0][x] = LocalDate.now().plusDays(x).format(calendar.getCzDateFormat());
 
             for (int i = 1; i < randomTicketsPerDay+1;i++){
