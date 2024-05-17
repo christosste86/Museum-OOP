@@ -74,4 +74,33 @@ public class Statistics {
 
         }
     }
+    public void customerStatistics (Calendar calendar, Customers customers, Scanner scanner, Statistics statistics, Tickets tickets){
+        boolean validDate = false;
+        while (!validDate) {
+            scanner.nextLine();
+            System.out.println("Date format: "+ LocalDate.now().format(calendar.getCzDateFormat()));
+            System.out.print("Date from: ");
+            String dateFrom = scanner.nextLine();
+            System.out.print("Date To: ");
+            String dateTo = scanner.nextLine();
+
+            int dateFromID = 0;
+            int dateToID = 0;
+            for (int i = 0; i<statistics.getTable()[0].length;i++){
+                if (dateFrom.equals(statistics.getTable()[0][i])){
+                    dateFromID = i;
+                }if (dateTo.equals(statistics.getTable()[0][i])){
+                    dateToID = i;
+                }
+            }
+            for (int i = dateFromID; i < dateToID;i++){
+                for (int x = 1; x < tickets.getMaxTicketsPerDay(); x++) {
+                    System.out.printf("|%-40S|", statistics.getTable()[i][x]);
+                }
+                System.out.println();
+            }
+            validDate = true; // Date is valid
+
+        }
+    }
 }

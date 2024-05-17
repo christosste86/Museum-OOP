@@ -45,16 +45,6 @@ public class Customers {
         this.price = price;
     }
 
-    public String randomFirstname(){
-        int f = (int) (Math.random()*2);
-        return randomNames[f][(int)(Math.random()* randomNames[f].length)].toString();
-    }
-
-    public String randomLastname(){
-        int l = (int) (2 + Math.random()*2);
-        return randomNames[l][(int)(Math.random()* randomNames[l].length)].toString();
-    }
-
     public void setRandomTableData(Statistics statistics, Tickets tickets,Customers customers, Calendar calendar){
         double dailyPrice = 0;
         int randomTicketsPerDay =(int) (Math.random()* tickets.getMaxTicketsPerDay() + 1);
@@ -74,7 +64,7 @@ public class Customers {
                 customers.setStatus(randomStatus);
                 customers.setPrice(tickets.offerPrice(customers));
                 statistics.getTable()[i][x] = firstName + ", " + lastName + ", "+ status+ ", "+ tickets.offerPrice(customers);
-                dailyPrice = dailyPrice + customers.getPrice();
+                dailyPrice += customers.getPrice();
             }
 
             statistics.getTable()[11][x] = randomTicketsPerDay;

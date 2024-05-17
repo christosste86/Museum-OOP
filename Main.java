@@ -87,6 +87,7 @@ public class Main {
                                 break;
                             case 2:
                                 System.out.println("Customers Statistics");
+                                statistics.customerStatistics(calendar, customers, scanner, statistics, tickets);
                                 promptEnterKey(scanner);
                                 break;
                             case 3:
