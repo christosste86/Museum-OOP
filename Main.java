@@ -74,7 +74,7 @@ public class Main {
                         System.out.println("connected as Administrator");
                         System.out.println("1. Ticket Statistics");
                         System.out.println("2. Customers Statistics");
-                        System.out.println("3. Price Statistics");
+                        System.out.println("3. Payment Statistics");
                         System.out.println("4. Back to Main Menu");
                         System.out.print("Choose an option: ");
 
@@ -90,7 +90,8 @@ public class Main {
                                 promptEnterKey(scanner);
                                 break;
                             case 3:
-                                System.out.println("Price Statistics");
+                                System.out.println("Payment Statistics");
+                                statistics.paymentStatistics(calendar,customers,scanner,statistics);
                                 promptEnterKey(scanner);
                                 break;
                             case 4:
