@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Customers {
     private String firstName;
@@ -69,6 +70,17 @@ public class Customers {
 
             statistics.getTable()[11][x] = randomTicketsPerDay;
             statistics.getTable()[12][x] = dailyPrice;
+        }
+
+    }
+    public void addReservation(Scanner scanner, Statistics statistics){
+        String dateReservation = scanner.nextLine();
+        int reservationDate = 0;
+        int numOfTicketsToReservation = scanner.nextInt();
+        for (int i = 0; i < statistics.getTable()[0].length; i++){
+            if (dateReservation.equals(statistics.getTable()[0][i])){
+                reservationDate = i;
+            }
         }
 
     }
