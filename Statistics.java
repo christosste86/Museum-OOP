@@ -10,12 +10,7 @@ public class Statistics {
         return table;
     }
 
-
-    public void setTable(Object[][] table) {
-        this.table = table;
-    }
-
-    public void CustomersInfo(){
+    public void ticketInfo(Calendar calendar, Customers customers){
 
     }
 
