@@ -105,14 +105,44 @@ public class Statistics {
                 System.out.println("|----------------------------------------|");
                 for (int x = 1; x <= tickets.getMaxTicketsPerDay(); x++) {
                     if (statistics.getTable()[x][i] == null){
-                        System.out.print();
+                        System.out.print("");
                     }else {
                         System.out.printf("|%-40S|", statistics.getTable()[x][i]);
                         System.out.println();
                     }
                 }
-                System.out.println("|----------------------------------------|");
+                System.out.println("|****************************************|");
             }
+            validDate = true; // Date is valid
+
+        }
+    }
+    public void freeTicketsStatistics(Calendar calendar, Scanner scanner, Statistics statistics, Tickets tickets){
+        boolean validDate = false;
+        while (!validDate) {
+            scanner.nextLine();
+            System.out.println("Date format: "+ LocalDate.now().format(calendar.getCzDateFormat()));
+            System.out.print("Date from: ");
+            String dateFrom = scanner.nextLine();
+            System.out.print("Date To: ");
+            String dateTo = scanner.nextLine();
+
+            int dateFromID = 0;
+            int dateToID = 0;
+            int sum = 0;
+            for (int i = 0; i<statistics.getTable()[0].length;i++){
+                if (dateFrom.equals(statistics.getTable()[0][i])){
+                    dateFromID = i;
+                }if (dateTo.equals(statistics.getTable()[0][i])){
+                    dateToID = i;
+                }
+            }
+            for (int i = dateFromID; i < dateToID;i++){
+                System.out.printf("|Date %-3S: %S Tickets", statistics.getTable()[0][i], (tickets.getMaxTicketsPerDay() - (int) statistics.getTable()[11][i]));
+                System.out.println();
+                sum += (int) statistics.getTable()[11][i];
+            }
+            System.out.println(sum);
             validDate = true; // Date is valid
 
         }

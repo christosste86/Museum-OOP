@@ -34,7 +34,7 @@ public class Main {
                         System.out.println("connected as Customer");
                         System.out.println("1. Add a reservation");
                         System.out.println("2. Payment information's");
-                        System.out.println("3. see Reservations");
+                        System.out.println("3. see free Tickets");
                         System.out.println("4. Read about Museum");
                         System.out.println("5. Back to Main Menu");
                         System.out.print("Choose an option: ");
@@ -52,6 +52,7 @@ public class Main {
                                 break;
                             case 3:
                                 System.out.println("see Reservations");
+                                statistics.freeTicketsStatistics(calendar, scanner, statistics, tickets);
                                 promptEnterKey(scanner);
                                 break;
                             case 4:
