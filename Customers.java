@@ -80,7 +80,7 @@ public class Customers {
                 String randomStatus = tickets.getOffers()[0][s].toString();
                 customers.setStatus(randomStatus);
                 customers.setPrice(tickets.offerPrice(customers));
-                statistics.getTable()[i][x] = firstName + ", " + lastName + ", "+ status+ ", "+ tickets.offerPrice(customers);
+                statistics.getTable()[i][x] = firstName + ", " + lastName + ", "+ status+ ", "+ tickets.offerPrice(customers)+" €";
                 dailyPrice += customers.getPrice();
             }
 

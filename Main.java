@@ -16,7 +16,7 @@ public class Main {
         customers.setRandomTableData(statistics, tickets, customers, calendar);
 
         introductions.welcome();
-
+        System.out.println(statistics.getTable()[statistics.getPaymentID()][0]);
 
         boolean exit = false;
         while (!exit){
