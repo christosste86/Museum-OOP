@@ -5,8 +5,18 @@ import java.util.Scanner;
 
 public class Statistics {
     private Object [][] table = new Object[13][365 - LocalDate.now().getDayOfYear()];
+    private final int ticketID = 11;
+    private final int paymentID = 12;
 
     public Statistics() {
+    }
+
+    public int getTicketID() {
+        return ticketID;
+    }
+
+    public int getPaymentID() {
+        return paymentID;
     }
 
     public Object[][] getTable() {
@@ -34,9 +44,9 @@ public class Statistics {
                     }
                 }
                 for (int i = dateFromID; i < dateToID;i++){
-                    System.out.printf("|Date %-3S: %S Tickets", statistics.getTable()[0][i], statistics.getTable()[11][i]);
+                    System.out.printf("|Date %-3S: %S Tickets", statistics.getTable()[0][i], statistics.getTable()[ticketID][i]);
                     System.out.println();
-                    sum += (int) statistics.getTable()[11][i];
+                    sum += (int) statistics.getTable()[ticketID][i];
                 }
             System.out.println(sum);
                 validDate = true; // Date is valid
@@ -67,9 +77,9 @@ public class Statistics {
                 }
             }
             for (int i = dateFromID; i < dateToID;i++){
-                System.out.printf("|Date %-3S: %S €", statistics.getTable()[0][i], statistics.getTable()[12][i]);
+                System.out.printf("|Date %-3S: %S €", statistics.getTable()[0][i], statistics.getTable()[paymentID][i]);
                 System.out.println();
-                sum += (double) statistics.getTable()[12][i];
+                sum += (double) statistics.getTable()[paymentID][i];
             }
             System.out.println(sum + " €");
             validDate = true; // Date is valid
@@ -138,7 +148,7 @@ public class Statistics {
                 }
             }
             for (int i = dateFromID; i < dateToID;i++){
-                System.out.printf("|Date %-3S: %S Tickets", statistics.getTable()[0][i], (tickets.getMaxTicketsPerDay() - (int) statistics.getTable()[11][i]));
+                System.out.printf("|Date %-3S: %S Tickets", statistics.getTable()[0][i], (tickets.getMaxTicketsPerDay() - (int) statistics.getTable()[ticketID][i]));
                 System.out.println();
             }
             validDate = true; // Date is valid
@@ -183,13 +193,13 @@ public class Statistics {
                         System.out.println();
                     }
                 }
-                System.out.printf("|%-2S %-37S|", statistics.getTable()[11][i],"Tickets");
+                System.out.printf("|%-2S %-37S|", statistics.getTable()[ticketID][i],"Tickets");
                 System.out.println();
-                System.out.printf("|%-6S %-33S|", statistics.getTable()[12][i],"€");
+                System.out.printf("|%-6S %-33S|", statistics.getTable()[paymentID][i],"€");
                 System.out.println();
                 System.out.println("|****************************************|");
-                ticketSum += (int) statistics.getTable()[11][i];
-                paymentSum += (double) statistics.getTable()[12][i];
+                ticketSum += (int) statistics.getTable()[ticketID][i];
+                paymentSum += (double) statistics.getTable()[paymentID][i];
             }
             System.out.printf("|Period Sold Tickets : %-18S|", ticketSum);
             System.out.println();

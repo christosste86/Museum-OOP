@@ -68,21 +68,35 @@ public class Customers {
                 dailyPrice += customers.getPrice();
             }
 
-            statistics.getTable()[11][x] = randomTicketsPerDay;
-            statistics.getTable()[12][x] = dailyPrice;
+            statistics.getTable()[statistics.getTicketID()][x] = randomTicketsPerDay;
+            statistics.getTable()[statistics.getPaymentID()][x] = dailyPrice;
         }
 
     }
-    public void addReservation(Scanner scanner, Statistics statistics){
+
+    public void addReservation(Scanner scanner, Statistics statistics, Tickets tickets){
         String dateReservation = scanner.nextLine();
-        int reservationDate = 0;
-        int numOfTicketsToReservation = scanner.nextInt();
+        int reservationDateID = 0;
         for (int i = 0; i < statistics.getTable()[0].length; i++){
             if (dateReservation.equals(statistics.getTable()[0][i])){
-                reservationDate = i;
+                reservationDateID = i;
             }
         }
+        int numOfTicketsToReservation = scanner.nextInt();
+        if (numOfTicketsToReservation <= tickets.getMaxTicketsPerDay() - (int) statistics.getTable()[statistics.getTicketID()][reservationDateID]){
 
+        }
+    }
+    static int freePositionInDate(Statistics statistics, int reservationDateID){
+        int freePosition = 0;
+        for (int i = 0; i < statistics.getTable().length;i++){
+
+            if (statistics.getTable()[i][reservationDateID] == null){
+                freePosition = i;
+                return freePosition;
+            }
+        }
+        return freePosition;
     }
 
 }
