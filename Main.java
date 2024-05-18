@@ -7,16 +7,14 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        Tickets tickets = new Tickets();
+
         Customers customers = new Customers();
-        Calendar calendar = new Calendar();
-        Statistics statistics = new Statistics();
         Introductions introductions = new Introductions();
 
-        customers.setRandomTableData(statistics, tickets, calendar);
+        customers.setRandomTableData();
 
         introductions.welcome();
-        System.out.println(statistics.getTable()[statistics.getPaymentID()][0]);
+        System.out.println(customers.getStatistics().getTable()[customers.getStatistics().getPaymentID()][0]);
 
         boolean exit = false;
         while (!exit){
@@ -48,12 +46,12 @@ public class Main {
                                 break;
                             case 2:
                                 System.out.println("Payment information's");
-                                introductions.priceInfo(tickets);
+                                introductions.priceInfo(customers.getTickets());
                                 promptEnterKey(scanner);
                                 break;
                             case 3:
                                 System.out.println("see Reservations");
-                                statistics.freeTicketsStatistics(calendar, scanner, statistics, tickets);
+                                customers.getStatistics().freeTicketsStatistics(customers);
                                 promptEnterKey(scanner);
                                 break;
                             case 4:
@@ -85,22 +83,22 @@ public class Main {
                         switch (administratorChois) {
                             case 1:
                                 System.out.println("Ticket Statistics");
-                                statistics.ticketStatistics(calendar,customers,scanner,statistics);
+                                customers.getStatistics().ticketStatistics(customers.getCalendar(),customers,scanner,customers.getStatistics());
                                 promptEnterKey(scanner);
                                 break;
                             case 2:
                                 System.out.println("Customers Statistics");
-                                statistics.customerStatistics(calendar, scanner, statistics, tickets);
+                                customers.getStatistics().customerStatistics(customers.getCalendar(), scanner, customers.getStatistics(), customers.getTickets());
                                 promptEnterKey(scanner);
                                 break;
                             case 3:
                                 System.out.println("Payment Statistics");
-                                statistics.paymentStatistics(calendar,scanner,statistics);
+                                customers.getStatistics().paymentStatistics(customers.getCalendar(),scanner,customers.getStatistics());
                                 promptEnterKey(scanner);
                                 break;
                             case 4:
                                 backToMain = true;
-                                statistics.fullStatistics(calendar, scanner, statistics, tickets);
+                                customers.getStatistics().fullStatistics(customers.getCalendar(), scanner, customers.getStatistics(), customers.getTickets());
                                 promptEnterKey(scanner);
                                 break;
                             case 5:

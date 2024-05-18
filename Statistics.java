@@ -125,12 +125,13 @@ public class Statistics {
 
         }
     }
-    public void freeTicketsStatistics(Calendar calendar, Scanner scanner, Statistics statistics, Tickets tickets){
+    public void freeTicketsStatistics(Customers customers){
+        Scanner scanner = new Scanner(System.in);
         boolean validDate = false;
         while (!validDate) {
             scanner.nextLine();
             try {
-                System.out.println("Date format: " + LocalDate.now().format(calendar.getCzDateFormat()));
+                System.out.println("Date format: " + LocalDate.now().format(customers.getCalendar().getCzDateFormat()));
                 System.out.print("Date from: ");
                 String dateFrom = scanner.nextLine();
                 System.out.print("Date To: ");
@@ -139,16 +140,16 @@ public class Statistics {
                 int dateFromID = 0;
                 int dateToID = 0;
                 int sum = 0;
-                for (int i = 0; i < statistics.getTable()[0].length; i++) {
-                    if (dateFrom.equals(statistics.getTable()[0][i])) {
+                for (int i = 0; i < customers.getStatistics().getTable()[0].length; i++) {
+                    if (dateFrom.equals(customers.getStatistics().getTable()[0][i])) {
                         dateFromID = i;
                     }
-                    if (dateTo.equals(statistics.getTable()[0][i])) {
+                    if (dateTo.equals(customers.getStatistics().getTable()[0][i])) {
                         dateToID = i + 1;
                     }
                 }
                 for (int i = dateFromID; i < dateToID; i++) {
-                    System.out.printf("|Date %-3S: %S Tickets", statistics.getTable()[0][i], (tickets.getMaxTicketsPerDay() - (int) statistics.getTable()[ticketID][i]));
+                    System.out.printf("|Date %-3S: %S Tickets", customers.getStatistics().getTable()[0][i], (customers.getTickets().getMaxTicketsPerDay() - (int) customers.getStatistics().getTable()[ticketID][i]));
                     System.out.println();
                 }
                 validDate = true; // Date is valid

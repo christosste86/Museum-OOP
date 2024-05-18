@@ -6,6 +6,9 @@ public class Customers {
     private String lastName;
     private String status;
     private double price;
+    private Tickets tickets;
+    private Calendar calendar = new Calendar();
+    private Statistics statistics = new Statistics();
 
     String [][] randomNames = {
             {"Eliška", "Tereza", "Adéla", "Anna", "Natálie"},
@@ -16,10 +19,35 @@ public class Customers {
 
     public Customers() {
         this.status = status == null?status = "normal": status;
+        this.tickets = new Tickets();
     }
 
     public String getFirstName() {
         return firstName;
+    }
+
+    public Tickets getTickets() {
+        return tickets;
+    }
+
+    public Calendar getCalendar() {
+        return calendar;
+    }
+
+    public void setCalendar(Calendar calendar) {
+        this.calendar = calendar;
+    }
+
+    public Statistics getStatistics() {
+        return statistics;
+    }
+
+    public void setStatistics(Statistics statistics) {
+        this.statistics = statistics;
+    }
+
+    public void setTickets(Tickets tickets) {
+        this.tickets = tickets;
     }
 
     public void setFirstName(String firstName) {
@@ -50,7 +78,7 @@ public class Customers {
         this.price = price;
     }
 
-    public void setRandomTableData(Statistics statistics, Tickets tickets, Calendar calendar){
+    public void setRandomTableData(){
         double dailyPrice = 0;
 
         for (int x = 0; x < statistics.getTable().length; x ++){
