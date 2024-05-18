@@ -50,7 +50,7 @@ public class Customers {
         this.price = price;
     }
 
-    public void setRandomTableData(Statistics statistics, Tickets tickets,Customers customers, Calendar calendar){
+    public void setRandomTableData(Statistics statistics, Tickets tickets, Calendar calendar){
         double dailyPrice = 0;
 
         for (int x = 0; x < statistics.getTable().length; x ++){
@@ -60,28 +60,28 @@ public class Customers {
             for (int i = 1; i < randomTicketsPerDay+1;i++){
                 int f = (int) (Math.random()*2);
                 String randomFirstame = randomNames[f][(int)(Math.random()* randomNames[f].length)].toString();
-                customers.setFirstName(randomFirstame);
+                setFirstName(randomFirstame);
                 int lastnameID = 0;
-                for (int z = 0; z < customers.randomNames[0].length;z++){
-                    if (customers.getFirstName().equals(customers.randomNames[0][z])){
+                for (int z = 0; z < randomNames[0].length;z++){
+                    if (getFirstName().equals(randomNames[0][z])){
                         lastnameID = 2;
                     }
                 }
-                for (int z = 0; z < customers.randomNames[1].length;z++){
-                    if (customers.getFirstName().equals(customers.randomNames[1][z])){
+                for (int z = 0; z < randomNames[1].length;z++){
+                    if (getFirstName().equals(randomNames[1][z])){
                         lastnameID = 3;
                     }
                 }
 
 
                 String randomLastname = randomNames[lastnameID][(int)(Math.random()* randomNames[lastnameID].length)].toString();
-                customers.setLastName(randomLastname);
+                setLastName(randomLastname);
                 int s = (int) (Math.random()*tickets.getOffers()[0].length);
                 String randomStatus = tickets.getOffers()[0][s].toString();
-                customers.setStatus(randomStatus);
-                customers.setPrice(tickets.offerPrice(customers));
-                statistics.getTable()[i][x] = firstName + ", " + lastName + ", "+ status+ ", "+ tickets.offerPrice(customers)+" €";
-                dailyPrice += customers.getPrice();
+                setStatus(randomStatus);
+                setPrice(tickets.offerPrice(this));
+                statistics.getTable()[i][x] = firstName + ", " + lastName + ", "+ status+ ", "+ tickets.offerPrice(this)+" €";
+                dailyPrice += getPrice();
             }
 
             statistics.getTable()[statistics.getTicketID()][x] = randomTicketsPerDay;

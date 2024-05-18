@@ -13,7 +13,7 @@ public class Main {
         Statistics statistics = new Statistics();
         Introductions introductions = new Introductions();
 
-        customers.setRandomTableData(statistics, tickets, customers, calendar);
+        customers.setRandomTableData(statistics, tickets, calendar);
 
         introductions.welcome();
         System.out.println(statistics.getTable()[statistics.getPaymentID()][0]);
