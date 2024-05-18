@@ -73,7 +73,8 @@ public class Customers {
                     }
                 }
 
-                String randomLastname = randomNames[lastnameID][(int)(Math.random()* randomNames[l].length)].toString();
+
+                String randomLastname = randomNames[lastnameID][(int)(Math.random()* randomNames[lastnameID].length)].toString();
                 customers.setLastName(randomLastname);
                 int s = (int) (Math.random()*tickets.getOffers()[0].length);
                 String randomStatus = tickets.getOffers()[0][s].toString();
