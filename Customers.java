@@ -18,6 +18,10 @@ public class Customers {
         this.status = status == null?status = "normal": status;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -57,8 +61,19 @@ public class Customers {
                 int f = (int) (Math.random()*2);
                 String randomFirstame = randomNames[f][(int)(Math.random()* randomNames[f].length)].toString();
                 customers.setFirstName(randomFirstame);
-                int l = (int) (2 + Math.random()*2);
-                String randomLastname = randomNames[l][(int)(Math.random()* randomNames[l].length)].toString();
+                int lastnameID = 0;
+                for (int z = 0; z < customers.randomNames[0].length;z++){
+                    if (customers.getFirstName().equals(customers.randomNames[0][z])){
+                        lastnameID = 2;
+                    }
+                }
+                for (int z = 0; z < customers.randomNames[1].length;z++){
+                    if (customers.getFirstName().equals(customers.randomNames[1][z])){
+                        lastnameID = 3;
+                    }
+                }
+
+                String randomLastname = randomNames[lastnameID][(int)(Math.random()* randomNames[l].length)].toString();
                 customers.setLastName(randomLastname);
                 int s = (int) (Math.random()*tickets.getOffers()[0].length);
                 String randomStatus = tickets.getOffers()[0][s].toString();
