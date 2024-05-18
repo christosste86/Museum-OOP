@@ -100,7 +100,25 @@ public class Customers {
         }
         int numOfTicketsToReservation = scanner.nextInt();
         if (numOfTicketsToReservation <= tickets.getMaxTicketsPerDay() - (int) statistics.getTable()[statistics.getTicketID()][reservationDateID]){
+            for (int i = freePositionInDate(statistics, statistics.getTicketID()); i < tickets.getMaxTicketsPerDay(); i++){
+                System.out.print("Firstname: ");
+                setFirstName(scanner.nextLine());
+                System.out.print("Lastname: ");
+                setLastName(scanner.nextLine());
+                System.out.print("Set your status -> ");
+                for(Object element: tickets.getOffers()[0] ){
+                    System.out.print(", " + element);
+                }
+                System.out.print(" <--");
+                String status = scanner.nextLine();
 
+                for(Object element: tickets.getOffers()[0] ){
+                    if(status.equalsIgnoreCase(element.toString())){
+                        setStatus(status);
+
+                    }
+                }
+            }
         }
     }
     static int freePositionInDate(Statistics statistics, int reservationDateID){
