@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Customers {
@@ -131,6 +132,22 @@ public class Customers {
             }
         }
         return freePosition;
+    }
+    static LocalDate printCorrectLocalDate(Scanner scanner, DateTimeFormatter dateFormat){
+        boolean check = false;
+        String inputDate = "";
+        LocalDate localDate = LocalDate.now();
+        while (check == false){
+            inputDate = scanner.nextLine();
+            try{
+                localDate = LocalDate.parse(inputDate, dateFormat);
+                check = true;
+                return localDate;
+            }catch (Exception e){
+                check = false;
+            }
+        }
+        return localDate;
     }
 
 }
